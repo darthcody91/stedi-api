@@ -68,7 +68,7 @@ spec:
 # CPU is the minimum amount of CPU the pod needs to run
               cpu: ".070"
 # Memory is the minimum amount of memory the pod needs to run              
-              memory: "50Mi"
+              memory: "25Mi"
 # LivenessProbe is a configuration that checks the pod for health
           livenessProbe:
 # HttpGet instructs kubernetes to do an HTTP request to check health
