@@ -8,7 +8,7 @@ kind: Deployment
 # Metadata is information related to the object we created in Kubernetes
 metadata:
 # The name here is the name of our deployment  
-  name: dev-stedi-cody
+  name: prod-stedi-cody
 spec:
 # Replicas refers to the number of pods we deploy
   replicas: 1
@@ -17,19 +17,19 @@ spec:
 # Matchlabels are a label for my selector  
     matchLabels:
 # App is a specific kind of label for my pod
-      app: dev-stedi-cody
+      app: prod-stedi-cody
 # The Template describes all the features of my pod
   template:
 # The metadata provides labels for my template  
     metadata:
       labels:
-        app: dev-stedi-cody
+        app: prod-stedi-cody
 # The spec refers to the specification of my containers in my pod        
     spec:
 # Containers can have one or more Docker containers in the pod
       containers:
 # The name of the container is specified below      
-        - name: dev-stedi-cody
+        - name: prod-stedi-cody
 # The image is a prebuilt file containing the operating system        
           image: us-docker.pkg.dev/scrum-team6/cody-api/stedi-api # IMAGE NEEDS TO BE ARTIFACT REGISTRY NEW REPOSITORY
           env:
@@ -85,10 +85,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: dev-stedi-cody-loadbalancer
+  name: prod-stedi-cody-loadbalancer
 spec:
   selector:
-    app: dev-stedi-cody
+    app: prod-stedi-cody
   type: LoadBalancer
   ports:
     - port: 80
